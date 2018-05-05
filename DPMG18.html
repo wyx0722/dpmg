@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Dark Admin</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />	
+   
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script>
+		$.browser = {} ;
+	</script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/iplat-ui-jqueryui.js"></script>
+    <script type="text/javascript" src="js/iplat-ui-control.js"></script>
+    <script type="text/javascript" src="js/EiServiceHelper.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="website/light-all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="website/dark-all.min.css" />
+	<link rel="stylesheet" type="text/css" href="DPMG18.css" />
+
+    <script type="text/javascript" src="website/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="website/gridData.js"></script>
+    <!-- <script type="text/javascript" src="echarts/dist/echarts-all.js"></script> -->
+    <script type="text/javascript" src="echarts/echarts3.min.js"></script>
+    <script type="text/javascript" src="echarts/e3theme/dark.js"></script>
+    <script type="text/javascript" src="echarts/ehelper.js"></script>
+
+
+</head>
+<body>
+    <div id="pageWrapper">
+
+        <div class="row" style="height:100%;">
+                
+  
+  
+  <div class="col-xs-12" style="height:100%;" xid="div69">
+   
+   
+   
+   <div class="row" style="height:5%;" xid="div1">
+   <div class="col-xs-4" xid="div538">
+   <div xid="div5" class="cell"></div></div>
+  <div class="col-xs-4" xid="div540">
+   <div xid="div5" class="cell">
+    <button type="button" class="btn textCenter PageTitle" xid="button2">汽车运输</button></div> </div>
+  <div class="col-xs-4" xid="div544">
+   <div xid="div543" class="cell"></div></div></div>
+  <div class="row" style="height:95%;" xid="div10">
+   <div class="col-xs-8" xid="div19">
+   
+  <div class="row" style="height:5%;" xid="div22">
+   <div xid="div20" class="cell"></div></div><div class="row" style="height:15%;" xid="div8">
+   <div class="col-xs-2" xid="div25">
+   <div class="row" style="height:10%;" xid="div6"></div><div xid="div26" class="cell item" style="height:80%;"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button1">一热轧</button></div>
+  
+  <div class="row" style="height:10%;" xid="div4"></div></div>
+  <div class="col-xs-2 " xid="div27">
+   <div class="row" style="height:10%;" xid="div104">
+   </div>
+  <div class="row" style="height:80%;" xid="div106">
+   <div xid="a0" class="cell car" id="a0">
+   </div></div></div>
+  <div class="col-xs-2" xid="div107">
+   <div class="row" style="height:10%;" xid="div125"></div>
+  <div class="row" style="height:80%;" xid="div123">
+   <div xid="a1" class="cell car" id="a1">
+    </div> </div></div>
+  <div class="col-xs-2" xid="div111">
+   <div class="row" style="height:10%;" xid="div128"></div>
+  <div class="row" style="height:80%;" xid="div126">
+   <div xid="div127" class="cell car" id="a2">
+    </div> </div></div>
+  <div class="col-xs-2" xid="div115">
+   <div class="row" style="height:10%;" xid="div131"></div>
+  <div class="row" style="height:80%;" xid="div129">
+   <div xid="a3" class="cell car" id="a3">
+    </div> </div></div>
+  <div class="col-xs-2" xid="div119">
+   <div class="row" style="height:10%;" xid="div134"></div>
+  <div class="row" style="height:80%;" xid="div132">
+   <div xid="a4" class="cell car" id="a4">
+    </div> </div></div></div>
+  <div class="row" style="height:15%;" xid="div12">
+   <div class="col-xs-2" xid="div43">
+   <div class="row" style="height:10%;" xid="div9"></div><div xid="div45" class="cell item" style="height:80%;"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button6">二热轧</button></div>
+  
+  <div class="row" style="height:10%;" xid="div7"></div></div>
+  <div class="col-xs-2 " xid="div143">
+   <div class="row" style="height:10%;" xid="div149"></div>
+   <div class="row" style="height:80%;" xid="div144">
+    <div xid="b0" class="cell car" id="b0">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div147">
+   <div class="row" style="height:10%;" xid="div141"></div>
+   <div class="row" style="height:80%;" xid="div142">
+    <div xid="b1" class="cell car" id="b1">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div135">
+   <div class="row" style="height:10%;" xid="div145"></div>
+   <div class="row" style="height:80%;" xid="div150">
+    <div xid="b2" class="cell car" id="b2">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div138">
+   <div class="row" style="height:10%;" xid="div152"></div>
+   <div class="row" style="height:80%;" xid="div148">
+    <div xid="b3" class="cell car" id="b3">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div139">
+   <div class="row" style="height:10%;" xid="div137"></div>
+   <div class="row" style="height:80%;" xid="div153">
+    <div xid="b4" class="cell car" id="b4">
+     </div> </div> </div></div>
+  <div class="row" style="height:15%;" xid="div14">
+   <div class="col-xs-2" xid="div55">
+   <div class="row" style="height:10%;" xid="div13"></div><div xid="div57" class="cell item" style="height:80%;"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button7">冷轧</button></div>
+  <div class="row" style="height:10%;" xid="div11"></div>
+  </div>
+  <div class="col-xs-2 " xid="div163">
+   <div class="row" style="height:10%;" xid="div169"></div>
+   <div class="row" style="height:80%;" xid="div164">
+    <div xid="c0" class="cell car" id="c0">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div167">
+   <div class="row" style="height:10%;" xid="div161"></div>
+   <div class="row" style="height:80%;" xid="div162">
+    <div xid="c1" class="cell car" id="c1">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div155">
+   <div class="row" style="height:10%;" xid="div165"></div>
+   <div class="row" style="height:80%;" xid="div170">
+    <div xid="c2" class="cell car" id="c2">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div158">
+   <div class="row" style="height:10%;" xid="div172"></div>
+   <div class="row" style="height:80%;" xid="div168">
+    <div xid="c3" class="cell car" id="c3">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div159">
+   <div class="row" style="height:10%;" xid="div157"></div>
+   <div class="row" style="height:80%;" xid="div173">
+    <div xid="c4" class="cell car" id="c4">
+     </div> </div> </div></div>
+  <div class="row" style="height:30%;" xid="div16">
+   <div class="col-xs-2" xid="div74">
+   <div class="row" style="height:10%;" xid="div17"></div><div xid="div75" class="cell item" style="height:80%;"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button8">码头成品库</button></div>
+  <div class="row" style="height:10%;" xid="div15"></div>
+  </div>
+  <div class="col-xs-10" xid="div76">
+   <div class="row" style="height:50%;" xid="div79">
+   <div class="col-xs-2 " xid="div205" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div207"></div>
+   <div class="row" style="height:80%;" xid="div202">
+    <div xid="d0" class="cell car" id="d0">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div209" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div201"></div>
+   <div class="row" style="height:80%;" xid="div204">
+    <div xid="d1" class="cell car" id="d1">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div197" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div203"></div>
+   <div class="row" style="height:80%;" xid="div212">
+    <div xid="d2" class="cell car" id="d2">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div196" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div211"></div>
+   <div class="row" style="height:80%;" xid="div206">
+    <div xid="d3" class="cell car" id="d3">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div199" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div195"></div>
+   <div class="row" style="height:80%;" xid="div213">
+    <div xid="d4" class="cell car" id="d4">
+     </div> </div> </div></div>
+  <div class="row" style="height:50%;" xid="div81">
+   <div class="col-xs-2 " xid="div224" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div229"></div>
+   <div class="row" style="height:80%;" xid="div222">
+    <div xid="d5" class="cell car" id="d5">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div228" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div221"></div>
+   <div class="row" style="height:80%;" xid="div227">
+    <div xid="d6" class="cell car" id="d6">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div231" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div226"></div>
+   <div class="row" style="height:80%;" xid="div215">
+    <div xid="d7" class="cell car" id="d7">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div234" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div219"></div>
+   <div class="row" style="height:80%;" xid="div225">
+    <div xid="d8" class="cell car" id="d8">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div218" style="width:20%;">
+   <div class="row" style="height:10%;" xid="div233"></div>
+   <div class="row" style="height:80%;" xid="div216">
+    <div xid="d9" class="cell car" id="d9">
+     </div> </div> </div></div></div></div>
+  <div class="row" style="height:15%;" xid="div18">
+
+   <div class="col-xs-2" xid="div67">
+<div class="row" style="height:10%;" xid="div29"></div>
+   <div xid="div70" class="cell item" style="height:80%;"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button9">陆运库</button>
+  </div>
+  
+  <div class="row" style="height:10%;" xid="div30"></div></div>
+  <div class="col-xs-2 " xid="div183">
+   <div class="row" style="height:10%;" xid="div189"></div>
+   <div class="row" style="height:80%;" xid="div184">
+    <div xid="e0" class="cell car" id="e0">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div187">
+   <div class="row" style="height:10%;" xid="div181"></div>
+   <div class="row" style="height:80%;" xid="div182">
+    <div xid="e1" class="cell car" id="e1">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div175">
+   <div class="row" style="height:10%;" xid="div185"></div>
+   <div class="row" style="height:80%;" xid="div190">
+    <div xid="e2" class="cell car" id="e2">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div178">
+   <div class="row" style="height:10%;" xid="div192"></div>
+   <div class="row" style="height:80%;" xid="div188">
+    <div xid="e3" class="cell car" id="e3">
+     </div> </div> </div>
+  <div class="col-xs-2" xid="div179">
+   <div class="row" style="height:10%;" xid="div177"></div>
+   <div class="row" style="height:80%;" xid="div193">
+    <div xid="e4" class="cell car" id="e4">
+     </div> </div> </div></div>
+  
+  <div class="row" style="height:5%;" xid="div24">
+   <div xid="div23" class="cell"></div></div></div>
+
+<div class="col-xs-4" xid="div21">
+   
+  <div class="row" style="height:5%;" xid="div235">
+   <div xid="div236" class="cell"></div></div>
+  <div class="row" style="height:5%;" xid="div237">
+   <div class="col-xs-3" xid="div242">
+   
+   <div xid="div243" class="cell"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button12">源库区</button></div></div>
+  <div class="col-xs-3" xid="div244">
+   <div xid="div245" class="cell"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button13">目的库区</button></div></div>
+  <div class="col-xs-3" xid="div246">
+   <div xid="div247" class="cell"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button14">计划数</button></div></div>
+  <div class="col-xs-3" xid="div248">
+   <div xid="div249" class="cell"><button type="button" class="btn textCenter" style="font-size:200%;" xid="button15">完成数</button></div></div></div>
+ 
+ <div class="row" style="height:5%;" xid="div2">
+   <div xid="div3" class="cell"></div></div>
+     <div class="row" style="height:70%;width:100%;position:absolute;overflow:hidden;" xid="div250" id="slide">
+  		<div xid="div259" class="cell"  id="slide1">
+	    	<table id="ystable" width="100%" cellspacing="0px" style="border-collapse: collapse"></table>           
+		<div id="slide2"></div>
+		</div>
+  </div>
+</div></div>
+  </div></div></div>  
+
+		<!-- /#wrapper -->
+
+     <script type="text/javascript" src="DPMG18.js"></script>
+
+</body>
+</html>

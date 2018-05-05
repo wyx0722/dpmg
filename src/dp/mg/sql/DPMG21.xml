@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DPMG21">
+
+    <select id="queryTanker" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">	
+        select 
+        	STOCK,
+        	ININDEX,
+        	WAGON_TYPE 
+        from  SU.TS_MG_24     
+	</select>
+	
+	<select id="querySum" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">	
+        select 
+        	wagon_type,
+        	count(wagon_type) as "typeSum"  
+        from su.ts_mg_24 group by wagon_type 
+	</select>
+	
+	<select id="queryPre" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">	
+		select 
+			DATE_CODE,
+			WEIGHT_NO 
+		from SU.TS_MG_30 
+		WHERE REC_CREATE_TIME=(select max(REC_CREATE_TIME) from SU.TS_MG_30) 
+		ORDER BY DATE_CODE   
+	</select>
+
+
+
+
+</sqlMap>
+

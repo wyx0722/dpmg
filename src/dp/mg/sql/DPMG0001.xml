@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="DPMG0001">
+
+    <select id="queryInfo" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+		SELECT
+				t1.STOCKID	as "stockid",  <!-- 库区编号 -->
+				t1.STOCKID_NAME  as "stockidName",  <!-- 库区名称 -->
+				t1.LOCOM_RUN_NUM	as "locomRunNum",  <!-- 货物吞吐量(库存量) --> 
+				t1.COL7	as "col7", <!-- 统计日期 -->
+				t2.MIN_MAT_WT	as "minMatWt",  <!-- 库区下限 -->
+				t2.MAX_MAT_WT	as "maxMatWt", <!-- 库区上限 -->
+				t1.COL2         as "col2"  <!-- 报警状态 -->
+		from SU.TI_RZZZ0002A t1,SU.TI_RZZZ0001 t2  where t1.stockid = t2.prod_line_code
+		and t1.col7=(select max(t3.col7) as col7 from SU.TI_RZZZ0002A t3 
+		WHERE 1=1
+		 <isNotEmpty prepend=" AND " property="col7">
+			 t1.col7 &lt;=#col7# 
+		 </isNotEmpty>
+		 )
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+   		<isEmpty property="orderBy">
+    		  STOCKID asc
+		</isEmpty>
+  		</dynamic>
+			
+	</select>
+	
+	<select id="queryContract" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+			
+			select  
+				contract_number as "contractNumber",
+				done_number as "doneNumber"  
+			from su.ts_mg_11 
+			where 
+			
+				unit_code ='公司' 
+				<isNotEmpty prepend=" AND " property="dateCode">
+					 date_code &gt;= #dateCode#
+				 </isNotEmpty>
+			
+			order by date_code desc
+			fetch first 1 rows only
+		
+			
+	</select>
+	
+	<select id="queryDoneNumber" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+			
+			
+			select 
+				done_number as "doneNumber" 
+			from su.ts_mg_11 
+			where unit_code ='公司'  
+			<isNotEmpty prepend=" AND " property="dateCode">
+					 date_code &gt;= #dateCode#
+			 </isNotEmpty>
+			order by date_code
+		
+			
+	</select>
+
+	
+
+	<select id="getPieChart" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+		SELECT
+				t1.STOCKIDTYPE	 as  "stockidType",              <!--库区分类 -->
+				t1.STOCKID	         as  "stockid",               <!-- 库区编号 -->
+				t1.STOCKIDNAME      as "stockidName",            <!-- 库区名称 -->
+				t1.STOCKNUMBER         as "stockNumber"                    <!-- 库区量 -->
+				
+		FROM SU.TI_RZZZ0002B t1
+		
+		WHERE 1=1
+		 <isNotEmpty prepend=" AND " property="stockid">
+			t1.STOCKID = #stockid#
+		 </isNotEmpty>
+			<dynamic prepend="ORDER BY">
+         <isNotEmpty property="orderBy">
+    		  $orderBy$
+   		 </isNotEmpty>
+  		</dynamic>
+			
+	</select>
+  
+</sqlMap>

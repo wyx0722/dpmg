@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DPMG22">
+
+    <select id="queryWT" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">	
+      select 
+      		a.stock,
+      		a.inindex,
+      		timestampdiff(4,char(current timestamp - timestamp(a.waiting_time))) as "timeDiff",  <!-- 已停留时间，精确到分钟-->
+      		b.STANDING_TIME as "stdTime" 
+      		from SU.TS_MG_25 a ,SU.TF_MG_06 b      
+	</select>
+
+
+
+
+</sqlMap>
+

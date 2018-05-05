@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原料码头</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />	
+   
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script>
+		$.browser = {} ;
+	</script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/iplat-ui-jqueryui.js"></script>
+    <script type="text/javascript" src="js/iplat-ui-control.js"></script>
+    <script type="text/javascript" src="js/EiServiceHelper.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="website/light-all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="website/dark-all.min.css" />
+	<link rel="stylesheet" type="text/css" href="DPMG19.css" />
+
+    <script type="text/javascript" src="website/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="website/gridData.js"></script>
+    <!-- <script type="text/javascript" src="echarts/dist/echarts-all.js"></script> -->
+    <script type="text/javascript" src="echarts/echarts3.min.js"></script>
+    <script type="text/javascript" src="echarts/e3theme/dark.js"></script>
+    <script type="text/javascript" src="echarts/ehelper.js"></script>
+
+
+</head>
+<body>
+    <div id="pageWrapper">
+
+        <div class="row" style="height:100%;">
+                
+  
+  
+  <div class="col-xs-12" style="height:100%;" xid="div69">
+   
+   
+   
+   <div class="row" style="height:5%;" xid="div1">
+   <div class="col-xs-4" xid="div538">
+   <div xid="div13" class="cell"></div></div>
+  <div class="col-xs-4" xid="div540">
+   <div xid="div5" class="cell">
+    <button type="button" class="btn textCenter PageTitle" xid="button4">原料码头</button></div> </div>
+  <div class="col-xs-4" xid="div544">
+   <div xid="div543" class="cell"></div></div></div>
+  <div class="row" style="height:90%;" xid="div10">
+   <div class="col-xs-8" xid="div19">
+   
+  <div class="row" style="height:32%;" xid="div22">
+   
+  
+  <div class="col-xs-2" xid="div331">
+   <div class="row" style="height:40%;" xid="div374">
+    <div xid="div361" class="cell"></div></div> 
+   <div class="row" style="height:20%;" xid="div376">
+    <div xid="div366" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:200%;" xid="button10">原料码头</button></div> </div> 
+   <div class="row" style="height:40%;" xid="div363">
+    <div xid="div369" class="cell"></div></div> </div>
+  <div class="col-xs-10" xid="div346">
+   <div class="row" style="height:10%;" xid="div357">
+    <div class="col-xs-3" xid="div327" style="width:30%;">
+     <div xid="shipName0" class="cell boatName " id="shipName0"></div></div> 
+    <div class="col-xs-1" xid="div364" style="width:5%;">
+     <div xid="div323" class="cell"></div></div> 
+    <div class="col-xs-3" xid="div329" style="width:30%;">
+     <div xid="shipName1" class="cell boatName" id="shipName1"></div></div> 
+    <div class="col-xs-1" xid="div325" style="width:5%;">
+     <div xid="div370" class="cell"></div></div> 
+    <div class="col-xs-3" xid="div324" style="width:30%;">
+     <div xid="shipName2" class="cell boatName " id="shipName2"></div></div> </div> 
+   <div class="row" style="height:30%;" xid="div341">
+    <div class="col-xs-3" xid="div338" style="width:30%;">
+     <div xid="berth0" class="cell boat " id="berth0">
+      </div> </div> 
+    <div class="col-xs-1" xid="div393" style="width:5%;">
+     <div xid="div334" class="cell"></div></div> 
+    <div class="col-xs-3" xid="div339" style="width:30%;">
+     <div xid="berth1" class="cell boat " id="berth1">
+      </div> </div> 
+    <div class="col-xs-1" xid="div333" style="width:5%;">
+     <div xid="div390" class="cell"></div></div> 
+    <div class="col-xs-3" xid="div345" style="width:30%;">
+     <div xid="berth2" class="cell boat " id="berth2">
+      </div> </div> </div> 
+   <div class="row" style="height:10%;" xid="div359">
+    <div class="col-xs-4" xid="div330" style="width:30%;">
+     <div xid="div383" class="cell berth"><button type="button" class="btn textCenter berthNo"  xid="button1">1号泊位</button></div></div> 
+    <div class="col-xs-1" xid="div371" style="width:5%;">
+     <div xid="div328" class="cell"></div></div> 
+    <div class="col-xs-4" xid="div332" style="width:30%;">
+     <div xid="div368" class="cell berth"><button type="button" class="btn textCenter berthNo" xid="button2">2号泊位</button></div></div> 
+    <div class="col-xs-1" xid="div387" style="width:5%;">
+     <div xid="div384" class="cell"></div></div> 
+    <div class="col-xs-4" xid="div385" style="width:30%;">
+     <div xid="div386" class="cell berth"><button type="button" class="btn textCenter berthNo" xid="button3">3号泊位</button></div></div> </div> 
+   <div class="row" style="height:50%;" xid="div335">
+    <div class="col-xs-3" xid="div347" style="width:30%;">
+     <div class="col-xs-2" xid="div349">
+      <div xid="div365" class="cell">
+       <p class="base" xid="p29"></p></div> </div> 
+     <div class="col-xs-4" xid="div360">
+      <div xid="machine10" class="cell " id="machine10">
+       <p class="base" xid="p33"></p>
+       </div> </div> 
+     <div class="col-xs-4" xid="div340">
+      <div xid="machine20" class="cell " id="machine20">
+       <p class="base" xid="p30"></p>
+       </div> </div> 
+     <div class="col-xs-2" xid="div322">
+      <div xid="div375" class="cell">
+       <p class="base" xid="p31"></p></div> </div> </div> 
+    <div class="col-xs-1" xid="div377" style="width:5%;">
+     <div xid="div378" class="cell">
+      <p class="base" xid="p32"></p></div> </div> 
+    <div class="col-xs-3" xid="div342" style="width:30%;">
+     <div class="col-xs-2" xid="div379">
+      <div xid="div373" class="cell">
+       <p class="base" xid="p22"></p></div> </div> 
+     <div class="col-xs-4" xid="div344">
+      <div xid="machine11" class="cell " id="machine11">
+       <p class="base" xid="p23"></p>
+       </div> </div> 
+     <div class="col-xs-4" xid="div343">
+      <div xid="machine21" class="cell " id="machine21">
+       <p class="base" xid="p21"></p>
+       </div> </div> 
+     <div class="col-xs-2" xid="div382">
+      <div xid="div380" class="cell">
+       <p class="base" xid="p24"></p></div> </div> </div> 
+    <div class="col-xs-1" xid="div391" style="width:5%;">
+     <div xid="div372" class="cell">
+      <p class="base" xid="p20"></p></div> </div> 
+    <div class="col-xs-3" xid="div389" style="width:30%;">
+     <div class="col-xs-2" xid="div351">
+      <div xid="div352" class="cell">
+       <p class="base" xid="p26"></p></div> </div> 
+     <div class="col-xs-4" xid="div336">
+      <div xid="machine12" class="cell " id="machine12">
+       <p class="base" xid="p27"></p>
+       </div> </div> 
+     <div class="col-xs-4" xid="div354">
+      <div xid="machine22" class="cell " id="machine22">
+       <p class="base" xid="p25"></p>
+       </div> </div> 
+     <div class="col-xs-2" xid="div350">
+      <div xid="div355" class="cell">
+       <p class="base" xid="p28"></p></div> </div> </div> </div> </div></div>
+  <div class="row" style="height:2%;" xid="div467">
+   <div xid="div468" class="cell"></div></div><div class="row" style="height:32%;" xid="div32">
+   <div class="col-xs-2" xid="div141"><div class="row" style="height:40%;" xid="div148">
+   <div xid="div146" class="cell"></div></div>
+  <div class="row" style="height:20%;" xid="div149">
+   <div xid="div144" class="cell">
+    <button type="button" class="btn textCenter" style="font-size:200%;" xid="button6">原料码头</button></div> </div>
+  <div class="row" style="height:40%;" xid="div147">
+   <div xid="div145" class="cell"></div></div></div>
+  <div class="col-xs-10" xid="div156">
+   
+   
+   <div class="row" style="height:10%;" xid="div164">
+   <div class="col-xs-3" xid="div219" style="width:30%;">
+   <div xid="shipName3" class="cell boatName " id="shipName3">
+    </div> </div>
+  <div class="col-xs-1" xid="div224" style="width:5%;">
+   <div xid="div216" class="cell"></div></div>
+  <div class="col-xs-3" xid="div220" style="width:30%;">
+   <div xid="shipName4" class="cell boatName" id="shipName4">
+    </div> </div>
+  <div class="col-xs-1" xid="div215" style="width:5%;">
+   <div xid="div222" class="cell"></div></div>
+  <div class="col-xs-3" xid="div217" style="width:30%;">
+   <div xid="shipName5" class="cell boatName " id="shipName5">
+    </div> </div></div>
+  <div class="row" style="height:30%;" xid="div157">
+   <div class="col-xs-3" xid="div203" style="width:30%;">
+   <div xid="berth3" class="cell boat " id="berth3"></div></div>
+  <div class="col-xs-1" xid="div196" style="width:5%;">
+   <div xid="div202" class="cell"></div></div>
+  <div class="col-xs-3" xid="div204" style="width:30%;">
+   <div xid="berth4" class="cell boat " id="berth4"></div></div>
+  <div class="col-xs-1" xid="div201" style="width:5%;">
+   <div xid="div198" class="cell"></div></div>
+  <div class="col-xs-3" xid="div199" style="width:30%;">
+   <div xid="berth5" class="cell boat " id="berth5"></div></div></div>
+  <div class="row" style="height:10%;" xid="div162">
+   <div class="col-xs-4" xid="div187" style="width:30%;">
+   <div xid="div190" class="cell berth"><button type="button" class="btn textCenter berthNo" xid="button5">4号泊位</button></div></div>
+  <div class="col-xs-1" xid="div189" style="width:5%;">
+   <div xid="div186" class="cell"></div></div>
+  <div class="col-xs-4" xid="div185" style="width:30%;">
+   <div xid="div188" class="cell berth"><button type="button" class="btn textCenter berthNo" xid="button7">5号泊位</button></div></div>
+  <div class="col-xs-1" xid="div192" style="width:5%;">
+   <div xid="div193" class="cell"></div></div>
+  <div class="col-xs-4" xid="div194" style="width:30%;">
+   <div xid="div191" class="cell berth"><button type="button" class="btn textCenter berthNo" xid="button8">6号泊位</button></div></div></div>
+  <div class="row" style="height:50%;" xid="div166">
+   <div class="col-xs-3" xid="div233" style="width:30%;">
+   <div class="col-xs-2" xid="div238">
+   <div xid="div301" class="cell"><p class="base" xid="p19"></p></div></div>
+  <div class="col-xs-4" xid="div240">
+   <div xid="machine13" class="cell " id="machine13"><p class="base"></p></div></div>
+  <div class="col-xs-4" xid="div253">
+   <div xid="machine23" class="cell " id="machine23">
+    <p class="base" xid="p7"></p></div> </div>
+  <div class="col-xs-2" xid="div255">
+   <div xid="div302" class="cell">
+   <p class="base" xid="p8"></p></div></div></div>
+  <div class="col-xs-1" xid="div226" style="width:5%;">
+   <div xid="div303" class="cell">
+   <p class="base" xid="p9"></p></div></div>
+  <div class="col-xs-3" xid="div234" style="width:30%;">
+   <div class="col-xs-2" xid="div308">
+   <div xid="div305" class="cell">
+    <p class="base" xid="p11"></p></div> </div>
+  <div class="col-xs-4" xid="div312">
+   <div xid="machine14" class="cell " id="machine14">
+    <p class="base" xid="p14"></p>
+    </div> </div>
+  <div class="col-xs-4" xid="div311">
+   <div xid="machine24" class="cell " id="machine24">
+    <p class="base" xid="p12"></p>
+    </div> </div>
+  <div class="col-xs-2" xid="div307">
+   <div xid="div309" class="cell">
+    <p class="base" xid="p13"></p></div> </div></div>
+  <div class="col-xs-1" xid="div231" style="width:5%;">
+   <div xid="div304" class="cell">
+   <p class="base" xid="p10"></p></div></div>
+  <div class="col-xs-3" xid="div230" style="width:30%;">
+   <div class="col-xs-2" xid="div316">
+   <div xid="div313" class="cell">
+    <p class="base" xid="p15"></p></div> </div>
+  <div class="col-xs-4" xid="div320">
+   <div xid="machine15" class="cell " id="machine15">
+    <p class="base" xid="p18"></p>
+    </div> </div>
+  <div class="col-xs-4" xid="div319">
+   <div xid="machine25" class="cell " id="machine25">
+    <p class="base" xid="p16"></p>
+    </div> </div>
+  <div class="col-xs-2" xid="div315">
+   <div xid="div317" class="cell">
+    <p class="base" xid="p17"></p></div> </div></div></div>
+  </div></div>
+  <div class="row" style="height:2%;" xid="div469">
+   <div xid="div470" class="cell"></div></div>
+  <div class="row" style="height:32%;" xid="div598">
+   <div class="col-xs-2" xid="div641">
+    <div class="row" style="height:40%;" xid="div664">
+     <div xid="div657" class="cell"></div></div> 
+    <div class="row" style="height:20%;" xid="div666">
+     <div xid="div660" class="cell">
+      <button type="button" class="btn textCenter" style="font-size:200%;" xid="button12">远翔码头</button></div> </div> 
+    <div class="row" style="height:40%;" xid="div658">
+     <div xid="div661" class="cell"></div></div> </div> 
+   <div class="col-xs-10" xid="div646">
+    <div class="row" style="height:10%;" xid="div655">
+     <div class="col-xs-3" xid="div603" style="width:30%;">
+      <div xid="shipName6" class="cell boatName " id="shipName6"></div></div> 
+     <div class="col-xs-1" xid="div622" style="width:5%;">
+      <div xid="div599" class="cell"></div></div> 
+     <div class="col-xs-3" xid="div605" style="width:30%;">
+      <div xid="shipName7" class="cell boatName" id="shipName7"></div></div> 
+     <div class="col-xs-1" xid="div601" style="width:5%;">
+      <div xid="div625" class="cell"></div></div> 
+     <div class="col-xs-3" xid="div600" style="width:30%;">
+      <div xid="shipName8" class="cell boatName " id="shipName8"></div></div> </div> 
+    <div class="row" style="height:30%;" xid="div643">
+     <div class="col-xs-3" xid="div613" style="width:30%;">
+      <div xid="berth6" class="cell boat " id="berth6">
+       </div> </div> 
+     <div class="col-xs-1" xid="div638" style="width:5%;">
+      <div xid="div609" class="cell"></div></div> 
+     <div class="col-xs-3" xid="div614" style="width:30%;">
+      <div xid="berth7" class="cell boat " id="berth7">
+       </div> </div> 
+     <div class="col-xs-1" xid="div608" style="width:5%;">
+      <div xid="div635" class="cell"></div></div> 
+     <div class="col-xs-3" xid="div616" style="width:30%;">
+      <div xid="berth8" class="cell boat " id="berth8">
+       </div> </div> </div> 
+    <div class="row" style="height:10%;" xid="div656">
+     <div class="col-xs-4" xid="div606" style="width:30%;">
+      <div xid="div628" class="cell berth"><button type="button" class="btn textCenter berthNo" xid="button9">1号泊位</button></div></div> 
+     <div class="col-xs-1" xid="div626" style="width:5%;">
+      <div xid="div604" class="cell"></div></div> 
+     <div class="col-xs-4" xid="div607" style="width:30%;">
+      <div xid="div624" class="cell berth"><button type="button" class="btn textCenter berthNo" xid="button11">2号泊位</button></div></div> 
+     <div class="col-xs-1" xid="div632" style="width:5%;">
+      <div xid="div629" class="cell"></div></div> 
+     <div class="col-xs-4" xid="div630" style="width:30%;">
+      <div xid="div631" class="cell berth"><button type="button" class="btn textCenter berthNo" xid="button16">3号泊位</button></div></div> </div> 
+    <div class="row" style="height:50%;" xid="div610">
+     <div class="col-xs-3" xid="div617" style="width:30%;">
+      <div class="col-xs-2" xid="div618">
+       <div xid="div659" class="cell">
+        <p class="base" xid="p115"></p></div> </div> 
+      <div class="col-xs-4" xid="div620">
+       <div xid="machine16" class="cell " id="machine16">
+        <p class="base" xid="p119"></p>
+        </div> </div> 
+      <div class="col-xs-4" xid="div642">
+       <div xid="machine26" class="cell " id="machine26">
+        <p class="base" xid="p116"></p>
+        </div> </div> 
+      <div class="col-xs-2" xid="div640">
+       <div xid="div665" class="cell">
+        <p class="base" xid="p117"></p></div> </div> </div> 
+     <div class="col-xs-1" xid="div627" style="width:5%;">
+      <div xid="div667" class="cell">
+       <p class="base" xid="p118"></p></div> </div> 
+     <div class="col-xs-3" xid="div615" style="width:30%;">
+      <div class="col-xs-2" xid="div668">
+       <div xid="div663" class="cell">
+        <p class="base" xid="p108"></p></div> </div> 
+      <div class="col-xs-4" xid="div645">
+       <div xid="machine17" class="cell " id="machine17">
+        <p class="base" xid="p109"></p>
+        </div> </div> 
+      <div class="col-xs-4" xid="div644">
+       <div xid="machine27" class="cell " id="machine27">
+        <p class="base" xid="p107"></p>
+        </div> </div> 
+      <div class="col-xs-2" xid="div671">
+       <div xid="div669" class="cell">
+        <p class="base" xid="p110"></p></div> </div> </div> 
+     <div class="col-xs-1" xid="div636" style="width:5%;">
+      <div xid="div662" class="cell">
+       <p class="base" xid="p106"></p></div> </div> 
+     <div class="col-xs-3" xid="div634" style="width:30%;">
+      <div class="col-xs-2" xid="div649">
+       <div xid="div650" class="cell">
+        <p class="base" xid="p112"></p></div> </div> 
+      <div class="col-xs-4" xid="div611">
+       <div xid="machine18" class="cell " id="machine18">
+        <p class="base" xid="p113"></p>
+        </div> </div> 
+      <div class="col-xs-4" xid="div652">
+       <div xid="machine28" class="cell " id="machine28">
+        <p class="base" xid="p111"></p>
+        </div> </div> 
+      <div class="col-xs-2" xid="div648">
+       <div xid="div653" class="cell">
+        <p class="base" xid="p114"></p></div> </div> </div> </div> </div> </div></div>
+  <div class="col-xs-4" xid="div21">
+   <div class="row" style="height:5%;" xid="div235">
+    <div xid="div236" class="cell"></div></div> 
+   <div class="row" style="height:10%;" xid="div237">
+    <div class="col-xs-1" xid="div242">
+     <div xid="div243" class="cell"></div></div> 
+    <div class="col-xs-3" xid="div244">
+     <div xid="div245" class="cell">
+      <button type="button" class="btn textCenter" style="font-size:200%;" xid="button13">作业量</button></div> </div> 
+    <div class="col-xs-3" xid="div246">
+     <div xid="div247" class="cell">
+      <button type="button" class="btn textCenter" style="font-size:200%;" xid="rzy" id="rzy"></button></div> </div> 
+    <div class="col-xs-1" xid="div6">
+     <div xid="div4" class="cell"></div></div> 
+    <div class="col-xs-3" xid="div248">
+     <div xid="div249" class="cell">
+      <button type="button" class="btn textCenter" style="font-size:200%;" xid="yzy" id="yzy"></button></div> </div> 
+    <div class="col-xs-1" xid="div8">
+     <div xid="div7" class="cell"></div></div> </div> 
+   <div class="row" style="height:35%;" xid="div2">
+    <div class="col-xs-1" xid="div30" style="width:1%;">
+   <div xid="div33" class="cell"></div></div>
+  <div class="col-xs-10" xid="div24" style="width:98%;">
+   <div class="row" style="height:10%;" xid="div15">
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="col-xs-3 cell" xid="div36">
+   <button type="button" class="btn textCenter ZYHead" xid="button35" >码头</button></div>
+  <div class="col-xs-3 cell" xid="div38">
+   <button type="button" class="btn textCenter ZYHead" xid="button36" >货名</button></div>
+  <div class="col-xs-3 cell" xid="div39">
+   <button type="button" class="btn textCenter ZYHead" xid="button37" >日作业</button></div>
+  <div class="col-xs-3 cell" xid="div40">
+   <button type="button" class="btn textCenter ZYHead" xid="button38" >月作业</button></div></div> 
+   <div class="row" style="height:90%;width:100%;position:absolute;overflow:hidden;" xid="div20" id="slide">
+    <div xid="div35" class="cell" id="slide1">
+     <table id="zylTable" width="100%" height="100%" cellspacing="0px" style="border-collapse: collapse" xid="default2"></table>
+ <div id="slide2"></div>
+</div> </div> </div>
+  <div class="col-xs-1" xid="div27" style="width:1%;">
+   <div xid="div29" class="cell"></div></div></div> 
+   <div class="row" style="height:50%" xid="div250" id="slide">
+    <div class="col-xs-1" xid="div67" style="width:1%;">
+   <div xid="div68" class="cell"></div>
+  </div>
+  <div class="col-xs-10" xid="div70" style="width:98%;">
+   <div class="row" style="height:10%;" xid="div11">
+   
+   <div class="col-xs-1  cell" xid="div18" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button17">泊位号</button></div> 
+   <div class="col-xs-1  cell" xid="div34" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button20">船名</button></div> 
+   <div class="col-xs-1  cell" xid="div53" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button29">靠泊时间</button></div> 
+   <div class="col-xs-1  cell" xid="div52" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button28">开工时间</button></div> 
+   <div class="col-xs-1  cell" xid="div55" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button31">货名</button></div> 
+   <div class="col-xs-1  cell" xid="div54" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button30">运输方式</button></div> 
+   <div class="col-xs-1  cell" xid="div57" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button33">计划量</button></div> 
+   <div class="col-xs-1  cell" xid="div56" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button32">实绩</button></div> 
+   <div class="col-xs-1  cell" xid="div58" style="width:11%;">
+    <button type="button" class="btn textCenter THead" xid="button34">剩余</button></div> 
+   </div>
+  <div class="row" style="height:90%;" xid="div14">
+   
+   
+   <div xid="div64" class="cell">
+   <table id="infTable" width="100%" height="100%" cellspacing="0px" style="border-collapse: collapse" xid="default1"></table></div></div></div>
+  <div class="col-xs-1" xid="div72" style="width:1%;">
+   <div xid="div73" class="cell"></div></div></div> </div></div>
+
+<div class="row" style="height:5%;" xid="div31">
+   <div xid="div28" class="cell"></div></div></div>
+  </div></div>  
+
+		<!-- /#wrapper -->
+
+     <script type="text/javascript" src="DPMG19.js"></script>
+
+</body>
+</html>

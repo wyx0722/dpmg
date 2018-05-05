@@ -1,0 +1,20 @@
+@IMPORT url("./css/common.css");
+
+.cell{
+	border :0px solid #2a9fd6;
+	
+}
+
+.textCenter{
+	/*font-weight:bolder;*/
+	text-align:left;
+}
+
+.item{
+	
+	color:#11C2EE;
+	font-weight:bold;
+	font-size:250%;
+	
+
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DPMG18">
+
+    <select id="queryNUM" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">	
+	select  
+		UNIT_NAME,
+		VEHICLES_NUMBER 
+	from SU.TS_MG_28 
+	where REC_CREATE_TIME=(select max(REC_CREATE_TIME) from SU.TS_MG_28)
+	order by case UNIT_NAME when '一热轧' THEN 1 WHEN '二热轧' THEN 2 WHEN '冷轧' THEN 3 WHEN '码头成品库' THEN 4 WHEN '陆运库' THEN 5 END
+	</select>
+
+	<select id="queryINF" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT * FROM SU.TS_MG_29 
+	</select>
+
+
+</sqlMap>
+

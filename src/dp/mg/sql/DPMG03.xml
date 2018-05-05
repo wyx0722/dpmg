@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DPMG03">
+	<select id="queryTKSHZ" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		   select fl_code,sum(weight_ac) as weight_ac from SU.TS_MG_13 where fl_code='铁矿石' and date_code=(select max(date_code) from SU.ts_mg_13) group by fl_code	
+	</select>
+	
+	<select id="queryTKS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		   select unit_code,weight_ac from SU.TS_MG_13 where fl_code='铁矿石' and date_code=(select max(date_code) from SU.ts_mg_13)
+	</select>
+	
+	<select id="queryLJM" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		   select fl_code,weight_ac from SU.TS_MG_13 where fl_code='炼焦煤' and date_code=(select max(date_code) from SU.ts_mg_13)
+	</select>
+	
+	<select id="queryJT" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		    select unit_code,weight_ac from SU.TS_MG_13 where unit_code='焦炭' and date_code=(select max(date_code) from SU.ts_mg_13)
+	</select>
+	
+	<select id="queryTJJ" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		   select unit_code,weight_ac from SU.TS_MG_13 where unit_code='特级焦' and date_code=(select max(date_code) from SU.ts_mg_13)
+	</select>
+	
+	<select id="queryTKSQS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		      select date_code,sum(weight_ac) as weight_ac from ( select * from SU.TS_MG_13 where unit_code in ('一次料场','混匀料场')) group by date_code order by date_code
+	</select>
+	
+	<select id="queryLJMQS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		      select date_code,weight_ac from SU.TS_MG_13 where fl_code='炼焦煤' order by date_code
+	</select>
+
+	<select id="queryPZYJ" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		      select 
+		      NAME,KC_TARGET_DAYS,KC_CN,KC_DX,KC_ZT 
+		      from SU.TS_MG_14 order by (KC_SJ_DAYS-KC_TARGET_DAYS) asc fetch first 10 rows only
+	</select>
+	   
+
+
+</sqlMap>
+

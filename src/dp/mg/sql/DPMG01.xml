@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="DPMG01">
+
+	<!-- 原料库存量 -->
+	<select id="queryYLKCL" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 
+			fl_code as "itemCode",
+			to_char(cast(round(cast(sum(weight_ac) as decimal(10,4))/10000,2) as decimal(10,2))) as "wt"
+			from su.ts_mg_13 
+			where fl_code in ('铁矿石','炼焦煤','焦炭','废钢')
+			and date_code in (select max(date_code) from su.ts_mg_13)
+			group by fl_code 
+	
+	</select>
+	
+	<!-- 成品出厂 -->
+	<select id="queryCPCC" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 
+			item_code as "itemCode",
+			to_char(cast(round(cast(sum(weight_ac) as decimal(10,4))/10000,2) as decimal(10,2))) as "wt"
+			from su.ts_mg_06 
+			where item_code in ('IS','IH','XC','LZ')
+			and date_code in (select max(date_code) from su.ts_mg_06)
+			group by item_code 
+	
+	</select>
+	
+	<!-- 产量下钻 -->
+	<select id="queryCL" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select a."richanliang",b."yuechanliang" from
+		(
+		select sum(weight_ac) as "richanliang" from SU.TS_MG_01 where item_code = #stockId# and date_code in (select max(date_code) from su.TS_MG_01)
+		) a,
+		(
+		select sum(month_fact) as "yuechanliang" from SU.TS_MG_12 where unit_code = #stockId# and date_prc in (select max(date_prc) from su.TS_MG_12)
+		)b
+	
+	</select>
+	<!-- 能源下钻 -->
+	<select id="queryNY" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select weight_code as "code",sum(weight_ac) as "wt",weight_unit as "unit" from su.ts_mg_16 
+		where  item_code = #stockId# and date_code in (select max(date_code) from su.TS_MG_16)
+		group by weight_code,weight_unit
+		 order by weight_code
+	</select>
+	
+	<!-- 电厂下钻 -->
+	<select id="queryDC" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select item_code as "itemCode",item_name as "itemName",weight_code as "code",sum(weight_ac) as "wt",weight_unit as "unit" 
+		from su.ts_mg_16 
+		where  region_name = '电厂' and date_code in (select max(date_code) from su.TS_MG_16)
+		group by item_code,item_name,weight_code,weight_unit
+		 order by item_code
+	</select>
+  
+  	<!-- 停机状态 -->
+	<select id="queryTJ" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+	  	select item_code as "itemCode",item_name as "itemName",
+	  		case when to_char(current date,'yyyyMMddhh24miss')-halt_start_time <![CDATA[>]]> 10000 then '1' else '0' end as "enlarge"
+		from(
+			select item_code,item_name,item_type,halt_start_time,row_number() over (partition by item_code order by rec_create_time desc) as index
+			from SU.TS_MG_02 
+		)where index = 1 and item_type = '1'
+	</select>
+	<!-- 定检修状态 -->
+	<select id="queryDJX" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select item_code as "code",overhaul as "overhaul" from(
+			select item_code ,
+			case when to_char(current date,'yyyyMMddHH24miss') <![CDATA[>=]]> rec_start_time and to_char(current date,'yyyyMMddHH24miss') <![CDATA[<=]]> rec_end_time
+			then '1' else '0' end as overhaul 
+			from su.TF_MG_02 
+					where   date_code in (select max(date_code) from su.TF_MG_02)
+		) where overhaul = '1'
+	</select>
+</sqlMap>

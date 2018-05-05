@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DPMG08">
+
+	<select id="queryFCJ" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+      select 
+           t1.UNIT_CODE as "unitCode",
+           t1.ITEM_CODE as "itemCode",
+		   t1.WEIGHT_AC as "weightAc",
+           t2.TAGRT_MIN as "min",
+           t2.TAGRT_MID as "mid",
+           t2.TAGRT_MAX as "max"           
+	 from 
+	 		SU.TS_MG_10 t1 JOIN SU.TF_MG_05 t2 ON t1.ITEM_CODE = t2.ITEM_CODE AND t1.UNIT_CODE = t2.UNIT_CODE
+     where t1.ITEM_CODE='废次降率' and DATE_CODE=(select max(DATE_CODE) from SU.TS_MG_10)
+     order by case t1.UNIT_CODE when '公司' then 1 when '炼钢' then 2 when '热轧' then 3 when '酸洗' then 4 when '冷轧' then 5 end
+	  
+	</select>
+	
+	<select id="queryXH" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+      select 
+           t1.UNIT_CODE as "unitCode",
+           t1.ITEM_CODE as "itemCode",
+		   t1.WEIGHT_AC as "weightAc",
+           t2.TAGRT_MIN as "min",
+           t2.TAGRT_MID as "mid",
+           t2.TAGRT_MAX as "max"           
+	 from 
+	 		SU.TS_MG_10 t1 JOIN SU.TF_MG_05 t2 ON t1.ITEM_CODE = t2.ITEM_CODE AND t1.UNIT_CODE = t2.UNIT_CODE
+     where t1.ITEM_CODE='现货率' and DATE_CODE=(select max(DATE_CODE) from SU.TS_MG_10)
+     order by case t1.UNIT_CODE when '公司' then 1 when '炼钢' then 2 when '热轧' then 3 when '酸洗' then 4 when '冷轧' then 5 end
+
+	</select>
+	
+	<select id="queryLSFS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+      select 
+           t1.UNIT_CODE as "unitCode",
+           t1.ITEM_CODE as "itemCode",
+		   t1.WEIGHT_AC as "weightAc",
+           t2.TAGRT_MIN as "min",
+           t2.TAGRT_MID as "mid",
+           t2.TAGRT_MAX as "max"           
+	 from 
+	 		SU.TS_MG_10 t1 JOIN SU.TF_MG_05 t2 ON t1.ITEM_CODE = t2.ITEM_CODE AND t1.UNIT_CODE = t2.UNIT_CODE
+     where t1.ITEM_CODE='临时封锁率' and DATE_CODE=(select max(DATE_CODE) from SU.TS_MG_10)
+     order by case t1.UNIT_CODE when '公司' then 1 when '炼钢' then 2 when '热轧' then 3 when '酸洗' then 4 when '冷轧' then 5 end
+	</select>	
+	
+	
+<!--  	
+	<select id="queryFCJWH" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 	* 
+		from SU.TF_MG_05 
+		where ITEM_CODE='废次降率'
+		order by case UNIT_CODE when '公司' then 1 when '炼钢' then 2 when '热轧' then 3 when '酸洗' then 4 when '冷轧' then 5 end	  
+	</select>
+	
+	<select id="queryXHWH" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 	* 
+		from SU.TF_MG_05 
+		where ITEM_CODE='现货率'
+		order by case UNIT_CODE when '公司' then 1 when '炼钢' then 2 when '热轧' then 3 when '酸洗' then 4 when '冷轧' then 5 end
+
+	</select>
+	
+	<select id="queryLSFSWH" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 	* 
+		from SU.TF_MG_05 
+		where ITEM_CODE='临时封锁率'
+		order by case UNIT_CODE when '公司' then 1 when '炼钢' then 2 when '热轧' then 3 when '酸洗' then 4 when '冷轧' then 5 end		   
+	</select>	 
+-->
+	
+	<select id="queryALL" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+	      select 
+          	 	t1.UNIT_CODE as "unitCode",
+           		t1.ITEM_CODE as "itemCode",
+				t1.WEIGHT_AC as "weightAc",
+           		t2.TAGRT_MIN as "min",
+           		t2.TAGRT_MID as "mid",
+           		t2.TAGRT_MAX as "max"           
+		  from SU.TS_MG_10 t1 JOIN SU.TF_MG_05 t2 ON t1.ITEM_CODE = t2.ITEM_CODE AND t1.UNIT_CODE = t2.UNIT_CODE
+       	  where DATE_CODE=(select max(DATE_CODE) from SU.TS_MG_10)
+          order by case t1.ITEM_CODE when '废次降率' then 1 when '现货率' then 2 when '临时封锁率' then 3 end,
+          case t1.UNIT_CODE when '公司' then 1 when '炼钢' then 2 when '热轧' then 3 when '酸洗' then 4 when '冷轧' then 5 end	   
+	</select>	
+	
+	<select id="queryFCJPie" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+			select WEIGHT_BF,WEIGHT_JJ,WEIGHT_BC from SU.TS_MG_10 where UNIT_CODE='公司' and ITEM_CODE='废次降率' and DATE_CODE=(select(max(DATE_CODE)) from SU.TS_MG_10)  
+	</select>
+
+	
+	<select id="queryAllTrend" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+	select 
+		DATE_CODE,
+		ITEM_CODE,
+		WEIGHT_AC 
+	from SU.TS_MG_10 
+	where UNIT_CODE='公司' and 
+				DATE_CODE in(
+			 	select 	  substr(to_char(current date-1 day,'yyyymmdd'),1,8)  from sysibm.dual
+			 	union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 day,'yyyymmdd') from sysibm.dual
+				union all
+			    select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-2 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-3 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-4 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-5 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-6 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-7 month -1 day,'yyyymmdd')    from sysibm.dual        
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-8 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-9 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-10 month -1 day,'yyyymmdd')   from sysibm.dual
+				)
+			order by case ITEM_CODE when '废次降率' then 1 when '现货率' then 2 when '临时封锁率' then 3 end,DATE_CODE
+		  
+	</select>
+
+
+	<select id="queryFCJTrend" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+	
+		select 
+			DATE_CODE,
+			WEIGHT_AC 
+		from SU.TS_MG_10 
+		where UNIT_CODE='公司' and ITEM_CODE='废次降率' and
+				DATE_CODE in(
+						 	select 	  substr(to_char(current date-1 day,'yyyymmdd'),1,8)  from sysibm.dual
+						 	union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 day,'yyyymmdd') from sysibm.dual
+							union all
+						    select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-2 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-3 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-4 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-5 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-6 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-7 month -1 day,'yyyymmdd')    from sysibm.dual        
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-8 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-9 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-10 month -1 day,'yyyymmdd')   from sysibm.dual
+							)
+		order by DATE_CODE	
+
+	</select>
+	
+		
+	<select id="queryXHTrend" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 
+			DATE_CODE,
+			WEIGHT_AC 
+		from SU.TS_MG_10 
+		where UNIT_CODE='公司' and ITEM_CODE='现货率' and
+				DATE_CODE in(
+						 	select 	  substr(to_char(current date-1 day,'yyyymmdd'),1,8)  from sysibm.dual
+						 	union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 day,'yyyymmdd') from sysibm.dual
+							union all
+						    select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-2 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-3 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-4 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-5 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-6 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-7 month -1 day,'yyyymmdd')    from sysibm.dual        
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-8 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-9 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-10 month -1 day,'yyyymmdd')   from sysibm.dual
+							)
+		order by DATE_CODE		
+
+	</select>
+	
+	<select id="queryFSTrend" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 
+			DATE_CODE,
+			WEIGHT_AC 
+		from SU.TS_MG_10 
+		where UNIT_CODE='公司' and ITEM_CODE='临时封锁率' and
+				DATE_CODE in(
+						 	select 	  substr(to_char(current date-1 day,'yyyymmdd'),1,8)  from sysibm.dual
+						 	union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 day,'yyyymmdd') from sysibm.dual
+							union all
+						    select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-2 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-3 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-4 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-5 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-6 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-7 month -1 day,'yyyymmdd')    from sysibm.dual        
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-8 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-9 month -1 day,'yyyymmdd')    from sysibm.dual
+						    union all
+							select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-10 month -1 day,'yyyymmdd')   from sysibm.dual
+							)
+		order by DATE_CODE	
+	   
+	</select>	  
+
+</sqlMap>
+

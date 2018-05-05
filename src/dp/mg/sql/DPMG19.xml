@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DPMG19">
+
+    <select id="queryMT" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">	
+	select  
+  			SHIP_CNAME,
+  			MACHINE_ID1,	
+  			MACHINE_ID2,
+  			BERTH_ID	
+  	FROM SU.TS_MG_20
+	</select>
+
+	<select id="queryINF" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		 SELECT 
+ 			 BERTH_ID, 
+ 			 SHIP_CNAME,
+ 			 REAL_BERTH_TIME, 
+			 REAL_START_WORK_TIME,
+			 GOODS_NAME,
+			 TS_TYPE,
+			 SHIP_LOAD_WT,
+			 SHIP_SJ_WT,  
+			 SHIP_SY_WT	 
+ 		FROM SU.TS_MG_20
+	</select>
+	
+	<select id="queryZYL" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		  SELECT  	
+				DOCK_ID ,
+				GOODS_NAME ,
+				DAY_WORK_WT ,
+				MON_WORK_WT 
+		  FROM SU.TS_MG_21
+	</select>
+	
+	<select id="queryZYLTotal" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		  SELECT  	
+				sum(DAY_WORK_WT) as "dayTotal" ,
+				sum(MON_WORK_WT) as "monthTotal"
+		  FROM SU.TS_MG_21 
+		  where DATE_CODE=(SELECT MAX(DATE_CODE) FROM SU.TS_MG_21)
+	</select>
+
+
+</sqlMap>
+

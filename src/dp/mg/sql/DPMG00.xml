@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DPMG00">
+	<select id="queryRY" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 
+			a as "itemName",
+			b as "itemValue"  
+		from 
+		(select '总人数' as a, sum(c.b) as b from
+		( select '正式工' as a,zs_number as b from SU.TS_MG_07 
+		union all
+		select person_code as a,person_in-person_out as b from SU.TS_MG_09 where person_code in('协力工','访客' )) as c
+		union all 
+		(select '正式工' as a,zs_number as b from SU.TS_MG_07 
+		union all
+		select person_code as a,person_in-person_out as b from SU.TS_MG_09 where person_code in('协力工','访客' )))
+		WHERE 1=1  
+	     order by case A when '总人数' then 1 when '正式工' then 2  when '协力工' then 3 when '访客' then 4 END
+	</select>
+
+	
+	<select id="queryCL" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select 
+			a as "itemName",
+			b as "itemValue"  
+		from 
+		(select '总车辆' as a,sum(c.b) as b from
+		(select car_code as a,car_in-car_out as b from SU.TS_MG_08) as c
+		union all
+		select car_code as a,car_in-car_out as b from SU.TS_MG_08)
+		order by case A when '总车辆' then 1 when '客车' then 2  when '货车' then 3 when '特种车' then 4 END
+	</select>
+	
+	<select id="queryAQI" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT 
+		ITEM_NAME as "itemName",
+		WEIGHT_AC as "itemValue" 
+		FROM SU.TS_MG_05 
+		WHERE REGION='生活区' and ITEM_NAME in('PM2.5','PM10','O3','CO')
+		order by case ITEM_NAME when 'PM2.5' THEN 1 WHEN 'PM10' THEN 2 WHEN 'O3' THEN 3 WHEN 'CO' THEN 4 END
+	</select>
+	
+	<select id="queryINF" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		SELECT UNIT_CODE FROM SU.TF_MG_01 
+	</select>
+
+</sqlMap>
+

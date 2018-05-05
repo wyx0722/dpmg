@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Dark Admin</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script>
+		$.browser = {} ;
+	</script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/iplat-ui-jqueryui.js"></script>
+    <script type="text/javascript" src="js/iplat-ui-control.js"></script>
+    <script type="text/javascript" src="js/EiServiceHelper.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="website/light-all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="website/dark-all.min.css" />
+
+    <script type="text/javascript" src="website/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="website/gridData.js"></script>
+    <!-- <script type="text/javascript" src="echarts/dist/echarts-all.js"></script> -->
+    <script type="text/javascript" src="echarts/echarts3.min.js"></script>
+    <script type="text/javascript" src="echarts/e3theme/dark.js"></script>
+    <script type="text/javascript" src="echarts/ehelper.js"></script>
+    <script type="text/javascript" src="DPMG08.js"></script>
+
+	 <link rel="stylesheet" type="text/css" href="DPMG08.css" />
+
+</head>
+<body>
+    <div id="pageWrapper">
+
+        <div class="row" style="height:100%;">
+                <div class="col-xs-8" style="height:100%;width:42%;margin-left:1%!important;">
+                    
+                
+  
+  
+  <div class="panel panel-primary" xid="div11" style="height:100%;">
+   <div class="panel-heading" xid="div12" style="height:6%;">
+    <h3 class="panel-title" xid="h32" style="font-size:200%;height:100%;">
+			<!-- <table style='height:100%;width:100%;' class='textTable'><tr style='height:100%;width:100%;'><td style="text-align:center;vertical-align:middle;">废次率</td></tr></table> -->
+  <button type="button" class="btn textCenter" xid="button2" style="font-size:300%;">废次率</button></h3> </div> 
+   <div class="panel-body" xid="div13" style="height:95%;">
+    <div xid="div1" class="row" style="height:40%;">
+   <div xid="div2" class="col-xs-12" style="height:100%;">
+    <div xid="fcjTrend" class="cell" id="fcjTrend" style="height:100%;"></div></div> </div><div xid="div4" class="row" style="height:30%;">
+   <div xid="div3" class="col-xs-4">
+    <div xid="fcGaugeDiv0" class="cell" id="fcGaugeDiv0"></div></div> 
+   <div xid="div7" class="col-xs-4">
+    <div xid="fcGaugeDiv1" class="cell" id="fcGaugeDiv1"></div></div> 
+   <div xid="div8" class="col-xs-4">
+    <div xid="fcGaugeDiv2" class="cell" id="fcGaugeDiv2"></div></div> </div><div xid="div29" class="row" style="height:30%;">
+   <div xid="div30" class="col-xs-4">
+    <div xid="div150" class="cell" id="pieDiv"></div></div> 
+   <div xid="div28" class="col-xs-4">
+    <div xid="fcGaugeDiv3" class="cell" id="fcGaugeDiv3"></div></div> 
+   <div xid="div27" class="col-xs-4">
+    <div xid="fcGaugeDiv4" class="cell" id="fcGaugeDiv4"></div></div> </div></div> </div></div>
+                <div class="col-xs-4" style="width:28%;;">
+                    
+  
+  
+  <div class="panel panel-primary" xid="div42" style="height:100%;">
+   <div class="panel-heading" xid="div21" style="height:6%;">
+    <h3 class="panel-title" xid="h33" style="font-size:200%;height:100%;">
+     <button type="button" class="btn textCenter" xid="button3" style="font-size:300%;">现货率</button></h3> </div> 
+   <div class="panel-body" xid="div39" style="height:95%;">
+    
+    
+    <div xid="div170" class="row" style="height:40%;">
+   <div xid="div171" class="col-xs-12">
+    <div xid="div172" class="cell" id="gaugeDiv">
+     <div id="myTabContent" class="tab-content" xid="div93" style="height:100%;">
+      <div class="tab-pane fade active in" id="home" xid="div94" style="height:100%;">
+       <div xid="div109" class="row" style="height:100%;">
+        <div xid="div110" class="col-xs-12">
+         <div xid="xhTrend" class="cell" id="xhTrend"></div></div> </div> </div> 
+      <div class="tab-pane fade" id="profile" xid="div95">
+       <div xid="div161" class="row" style="height:100%;">
+        <div xid="div162" class="col-xs-6">
+         <div xid="div159" class="cell"></div></div> 
+        <div xid="div160" class="col-xs-6">
+         <div xid="div158" class="cell"></div></div> </div> </div> </div> </div> </div> </div><div xid="div49" class="row" style="height:30%;">
+   <div xid="div46" class="col-xs-6">
+    <div xid="xhGaugeDiv0" class="cell" id="xhGaugeDiv0"></div></div> 
+   <div xid="div48" class="col-xs-6">
+    <div xid="xhGaugeDiv1" class="cell" id="xhGaugeDiv1"></div></div> 
+   </div><div xid="div77" class="row" style="height:30%;">
+   <div xid="div76" class="col-xs-6">
+    <div xid="xhGaugeDiv2" class="cell" id="xhGaugeDiv2"></div></div> 
+   <div xid="div78" class="col-xs-6">
+    <div xid="xhGaugeDiv3" class="cell" id="xhGaugeDiv3"></div></div> </div></div> </div></div>
+            <div class="col-xs-4" style="width:28%;;" xid="div44">
+   <div class="panel panel-primary" xid="div123" style="height:100%;">
+   <div class="panel-heading" xid="div115" style="height:6%;">
+    <h3 class="panel-title" xid="h34" style="font-size:200%;height:100%;">
+     <button type="button" class="btn textCenter" xid="button4" style="font-size:300%;">临时封锁</button></h3> </div> 
+   <div class="panel-body" xid="div100" style="height:95%;">
+    <div xid="div121" class="row" style="height:40%;">
+     <div xid="div119" class="col-xs-12">
+      <div xid="div120" class="cell" id="gaugeDiv">
+       <div id="myTabContent" class="tab-content" xid="div103" style="height:100%;">
+        <div class="tab-pane fade active in" id="home" xid="div107" style="height:100%;">
+         <div xid="div118" class="row" style="height:100%;">
+          <div xid="div124" class="col-xs-12">
+           <div xid="fsTrend" class="cell" id="fsTrend"></div></div> </div> </div> 
+        <div class="tab-pane fade" id="profile" xid="div112">
+         <div xid="div104" class="row" style="height:100%;">
+          <div xid="div108" class="col-xs-6">
+           <div xid="div101" class="cell"></div></div> 
+          <div xid="div102" class="col-xs-6">
+           <div xid="div97" class="cell"></div></div> </div> </div> </div> </div> </div> </div> 
+    <div xid="div116" class="row" style="height:30%;">
+     <div xid="div114" class="col-xs-6">
+      <div xid="fsGaugeDiv0" class="cell" id="fsGaugeDiv0"></div></div> 
+     <div xid="div117" class="col-xs-6">
+      <div xid="fsGaugeDiv1" class="cell" id="fsGaugeDiv1"></div></div> </div> 
+    <div xid="div99" class="row" style="height:30%;">
+     <div xid="div98" class="col-xs-6">
+      <div xid="fsGaugeDiv2" class="cell" id="fsGaugeDiv2"></div></div> 
+     <div xid="div96" class="col-xs-6">
+      <div xid="fsGaugeDiv3" class="cell" id="fsGaugeDiv3"></div></div> </div> </div> </div></div></div></div>
+    <!-- /#wrapper -->
+    
+</body>
+</html>

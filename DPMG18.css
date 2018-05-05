@@ -1,0 +1,46 @@
+@IMPORT url("./css/common.css");
+
+.cell{
+	border :0px solid #2a9fd6;
+	
+}
+
+.PageTitle{
+	font-size:250%;
+	color:#E63830;	
+}
+
+.item{
+	/*
+	border :1px solid #ffffff;	
+	margin-left:2%;
+	background-color:##272727;
+	*/
+	
+}
+
+.car{
+	text-align:center;
+}
+
+img{
+	height:100%;
+	width:80%;
+}
+
+table {
+   font-size:150%;
+   text-align:center;
+   background:black;
+}
+
+table td{  
+    text-align:center;  
+    font-size:150%;
+    color:white;
+    width:25%;
+    
+}
+table tr{
+	height:10%;
+}

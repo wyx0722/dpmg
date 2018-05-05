@@ -1,0 +1,140 @@
+body{
+	background-color: #FFFFFF;
+	border: 0px solid red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei", verdana, arial, helvetica, sans-serif;
+}
+
+form{
+	/*防止出现滚动条*/
+	padding:0px;
+	margin:0px;
+	overflow:hidden;
+}
+
+#mainDiv{ 	
+	/*div大小跟窗口保持一致 */
+	border: 0px solid  yellow;
+	background-color:#000000;
+	margin: 0 auto;
+}
+
+.item{
+	color:#FF8C00;	
+	font-weight:bold;
+	
+}
+
+#aqi,#zcry,#zccl{	
+	width:100%;	
+}
+
+
+table {
+	width:100%;
+	height:100%;
+	color:#11C2EE;
+	padding:10px;
+	border-spacing: 0;	
+    border-collapse: collapse;
+    
+	/*table-layout:fixed;*/
+}
+
+td
+  {
+	width:50%;
+	padding-top:2%;
+	padding-bottom:2%;
+	
+  }
+
+#tq table{
+  
+}
+
+#tqItem0,#tqItem1{
+	width:30%;
+}	
+	
+
+#top{
+	padding-top:0.8%;	
+	color:#11C2EE;
+	font-weight:bold;
+	font-size: 150%;
+	width:100%;
+	height:13%;	
+	text-align:center;
+	
+}
+
+#leftDiv{
+	padding-left:3%;
+	width:30%;
+	height:85%;
+	/*background-color:yellow;*/
+	float: left;
+
+}
+
+#leftTopDiv{
+	
+    width:100%;
+	height:50%;
+	border: 0px solid  white;		
+	/*background-color:red;*/
+}
+
+
+#leftBottomDiv{
+	
+    width:100%;
+	height:50%;	
+	border: 0px solid  white;	
+	font-family: "Microsoft YaHei", verdana, arial, helvetica, sans-serif;
+	
+}
+
+
+
+#middleDiv{	
+	padding-left:4%;
+	width:30%;
+	height:85%;
+	/*background-color:blue;*/
+	border: 0px solid  red;
+	float: left;
+}
+
+#middleTopDiv{
+    width:100%;
+	height:60%;
+	border: 0px solid  white;
+}
+
+#middleBottomDiv{
+    width:100%;
+	height:40%;	
+	border: 0px solid  white;
+	/*position: relative;*/
+	font-family: "Microsoft YaHei", verdana, arial, helvetica, sans-serif;
+	
+}
+
+
+#rightDiv{ 
+	padding-left:3%;
+	width:30%;
+	height:85%;
+	border: 0px solid  white;
+	float: left;
+}
+
+#inf{	
+	color:#11C2EE;
+}

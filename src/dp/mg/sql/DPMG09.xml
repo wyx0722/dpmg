@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="DPMG09">
+
+
+	
+	<select id="queryNUM" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+	
+			select
+				CONTRACT_NUMBER as "contractNumber",
+				DONE_NUMBER as "doneNumber"  
+			from SU.TS_MG_11 
+			where DATE_CODE=(select max(DATE_CODE) from SU.TS_MG_11)
+			order by case UNIT_CODE when '公司' then 1 when '热轧' then 2  when '酸洗' then 3 when '冷轧' then 4 END
+			
+	</select>
+	
+	<select id="queryWeight" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+	
+			select
+				CONTRACT_TOTAL as "contractTotal",
+				DONE_TOTAL as "doneTotal"  
+			from SU.TS_MG_11 
+			where DATE_CODE=(select max(DATE_CODE) from SU.TS_MG_11)
+			order by 
+     		case UNIT_CODE when '公司' then 1 when '热轧' then 2  when '酸洗' then 3 when '冷轧' then 4 END
+		
+			
+	</select>
+	
+	<select id="queryUndone" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">   
+    	 	select
+        		UNIT_CODE as "unitCode",
+				UNDONE_NUMBER as "undoneNumber",
+				UNDONE_TOTAL as "undoneTotal"  
+			from SU.TS_MG_11 
+			where DATE_CODE=(select max(DATE_CODE) from SU.TS_MG_11)
+			order by 
+      case UNIT_CODE when '公司' then 1 when '热轧' then 2  when '酸洗' then 3 when '冷轧' then 4 END		
+			
+	</select>
+
+	
+
+	<select id="queryDoneTrend" parameterClass="java.util.HashMap" 
+			resultClass="java.util.HashMap">
+	select 
+	DATE_CODE as "dateCode",
+	DONE_NUMBER as "doneNumber",
+	CONTRACT_NUMBER as "contractNumber"
+	from SU.TS_MG_11 
+	where UNIT_CODE='公司' and DATE_CODE in(
+			 	select 	  substr(to_char(current date-1 day,'yyyymmdd'),1,8)  from sysibm.dual
+			 	union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 day,'yyyymmdd') from sysibm.dual
+				union all
+			    select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-1 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-2 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-3 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-4 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-5 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-6 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-7 month -1 day,'yyyymmdd')    from sysibm.dual        
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-8 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-9 month -1 day,'yyyymmdd')    from sysibm.dual
+			    union all
+				select    to_char(to_date(substr(to_char(current date-1 day,'yyyymmdd'),1,6)||'01','yyyymmdd')-10 month -1 day,'yyyymmdd')   from sysibm.dual
+)
+order by DATE_CODE
+			
+	</select>
+	
+  
+</sqlMap>

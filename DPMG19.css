@@ -1,0 +1,117 @@
+@IMPORT url("./css/common.css");
+
+.PageTitle{
+	font-size:250%;
+	color:#E63830;	
+}
+
+.cell{
+	border :0px solid #2a9fd6;
+	
+}
+
+.item{
+	/*
+	border :1px solid #ffffff;	
+	margin-left:2%;
+	background-color:##272727;
+	*/
+	
+}
+
+.car{
+	text-align:center;
+}
+
+img{
+	height:100%;
+	width:80%;
+
+}
+
+.bridgeEven{
+	height:100%;
+	width:80%;
+	position:absolute;
+	left:0;
+	top:0;
+    z-index:2；
+	
+}
+.bridgeOdd{
+	height:100%;
+	width:80%;
+	position:absolute;
+	right:0;
+	top:0;
+    z-index:2;
+	
+}
+.base{
+	width:100%;
+	height:20%;
+	background-color:#868fa9;
+	
+}
+
+.basebd{
+	width:100%;
+	height:20%;
+	background-color:#868fa9;
+	position:relative;
+	left:0;
+	top:0;
+	z-index:-1;
+	/*margin-top:20px;*/
+}
+
+.berth{
+	width:100%;
+	height:85%;
+	background-color:#868fa9;
+}
+
+.boat{
+	text-align:center;
+}
+
+.boatName
+{
+	text-align:center;
+	font-size:150%;
+}
+
+.berthNo{
+	font-size:120%;
+}
+
+.THead{
+	font-size:100%;
+}
+.ZYHead{
+	font-size:150%;
+}
+
+table {   
+  
+   text-align:center;
+   background:black;
+  display: inline-block; 
+   }
+   
+ tr,tbody{
+ width:100%;
+ }
+   
+#zylTable td{  
+    text-align:center;  
+    font-size:100%;
+    color:white;
+   
+  }
+  
+#infTable td{  
+    text-align:center;  
+    font-size:100%;
+    color:white;
+    }

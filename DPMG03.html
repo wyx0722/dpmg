@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原料库存</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/local.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script>
+		$.browser = {} ;
+	</script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/iplat-ui-jqueryui.js"></script>
+    <script type="text/javascript" src="js/iplat-ui-control.js"></script>
+    <script type="text/javascript" src="js/EiServiceHelper.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="website/light-all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="website/dark-all.min.css" />
+
+    <script type="text/javascript" src="website/shieldui-all.min.js"></script>
+    <script type="text/javascript" src="website/gridData.js"></script>
+    <!-- <script type="text/javascript" src="echarts/dist/echarts-all.js"></script> -->
+    <script type="text/javascript" src="echarts/echarts3.min.js"></script>
+    <script type="text/javascript" src="echarts/e3theme/dark.js"></script>
+    <script type="text/javascript" src="echarts/ehelper.js"></script>
+    <script type="text/javascript" src="DPMG03.js"></script>
+
+	 <link rel="stylesheet" type="text/css" href="DPMG03.css" />
+
+</head>
+<body>
+    <div id="pageWrapper">
+
+        <div class="row" style="height:100%;">
+                <div class="row" style="height:5%;" xid="div1">
+   <div class="col-xs-4" xid="div538" >
+   <div xid="div4" class="cell"></div></div>
+  <div class="col-xs-4" xid="div540" >
+   <div xid="div5" class="cell">
+    <button type="button" class="btn textCenter PageTitle" xid="button1">原料库存</button></div> </div>
+  <div class="col-xs-4" xid="div544" >
+   <div xid="div543" class="cell"></div></div></div>
+  <div class="row" style="height:5%;" xid="div9">
+   <div xid="div24" class="col-xs-6" style="height:100%;width:50%;">
+   <div xid="div21" class="cell" id="div21"><button type="button" class="btn textCenter" style="font-size:150%;" xid="button4">铁矿石趋势</button></div></div>
+  <div xid="div18" class="col-xs-6" style="height:100%;width:50%;">
+   <div xid="div13" class="cell" id="div13"><button type="button" class="btn textCenter" style="font-size:150%;" xid="button13">炼焦煤趋势</button></div></div></div><div class="row" style="height:25%;" xid="div8">
+   <div xid="div3" class="col-xs-6" style="height:100%;width:50%;">
+   <div xid="oreTrend" class="cell" id="oreTrend"><div xid="div65" class="cell"></div></div></div>
+  <div xid="div11" class="col-xs-6" style="height:100%;width:50%;">
+   <div xid="coalTrend" class="cell" id="coalTrend"></div></div></div>
+  <div class="row" style="width:100%;height:60%;" xid="div10">
+   <div xid="div14" class="col-xs-6" style="height:100%;">
+   <div class="row" style="height:100%;" xid="div41">
+   <div xid="div38" class="col-xs-2">
+    <div xid="div45" class="cell"></div></div> 
+   <div xid="div44" class="col-xs-10">
+    <div xid="div12" class="row" style="height:5%;">
+   <div xid="div2" class="col-xs-12" style="height:100%;"></div></div>
+  <div xid="div17" class="row" style="height:10%;">
+   <div xid="div42" class="col-xs-1" style="width:2%;">
+    <div xid="div43" class="cell"></div></div> 
+   <div xid="div53" class="col-xs-2" style="width:8%;">
+    <div xid="div52" class="cell">
+     <img src="img/ore.png" style="width:80%;" height="80%" xid="image1"></div> </div> 
+   <div xid="div55" class="col-xs-1" style="width:1%;">
+    <div xid="div54" class="cell"></div></div> 
+   <div xid="div57" class="col-xs-2" style="width:10%;">
+    <div xid="div56" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="button10">铁矿石</button></div> </div> 
+   
+   <div xid="div49" class="col-xs-1" style="width:2%;">
+   <div xid="div48" class="cell"></div></div><div xid="div163" class="col-xs-2">
+    <div xid="div162" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tkshz" id="tkshz"></button></div> </div> 
+  </div>
+  <div xid="div20" class="row" style="height:40%;">
+   <div xid="div19" class="col-xs-2">
+    <div xid="div60" class="cell"></div></div> 
+   <div xid="div62" class="col-xs-2">
+    <div xid="div68" class="row" style="height:25%;">
+     <div xid="div67" class="col-xs-12">
+      <div xid="div15" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tksItem0" id="tksItem0">一次料场</button></div> </div> </div> 
+    <div xid="div70" class="row" style="height:25%;">
+     <div xid="div69" class="col-xs-12">
+      <div xid="div71" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tksItem0" id="tksItem0">混匀料场</button></div> </div> </div> 
+    <div xid="div73" class="row" style="height:25%;">
+     <div xid="div72" class="col-xs-12">
+      <div xid="div74" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tksItem0" id="tksItem0">港存</button></div> </div> </div> 
+    <div xid="div76" class="row" style="height:25%;">
+     <div xid="div75" class="col-xs-12">
+      <div xid="div91" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tksItem0" id="tksItem0">在途</button></div> </div> </div> </div> 
+   <div xid="div64" class="col-xs-2">
+    <div xid="div93" class="row" style="height:25%;">
+     <div xid="div92" class="col-xs-12">
+      <div xid="div96" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tksValue0" id="tksValue0"></button></div> </div> </div> 
+    <div xid="div97" class="row" style="height:25%;">
+     <div xid="div95" class="col-xs-12">
+      <div xid="div98" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tksValue1" id="tksValue1"></button></div> </div> </div> 
+    <div xid="div103" class="row" style="height:25%;">
+     <div xid="div102" class="col-xs-12">
+      <div xid="div100" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tksValue2" id="tksValue2"></button></div> </div> </div> 
+    <div xid="div94" class="row" style="height:25%;">
+     <div xid="div101" class="col-xs-12">
+      <div xid="div99" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tksValue3" id="tksValue3"></button></div> </div> </div> </div> 
+   <div xid="div66" class="col-xs-6">
+    </div> </div>
+  <div xid="div23" class="row" style="height:5%;">
+   <div xid="div22" class="col-xs-12" style="height:100%;"></div></div>
+  <div xid="div26" class="row" style="height:10%;">
+   <div xid="div112" class="col-xs-1" style="width:2%;">
+    <div xid="div106" class="cell"></div></div> 
+   <div xid="div113" class="col-xs-2" style="width:8%;">
+    <div xid="div111" class="cell">
+     <img src="img/coal.png" style="width:80%;" height="80%" xid="image1"></div> </div> 
+   <div xid="div108" class="col-xs-1" style="width:1%;">
+    <div xid="div107" class="cell"></div></div> 
+   <div xid="div105" class="col-xs-2" style="width:10%;">
+    <div xid="div104" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="button11">炼焦煤</button></div> </div> 
+   
+   <div xid="div51" class="col-xs-1" style="width:2%;">
+   <div xid="div58" class="cell"></div></div><div xid="div27" class="col-xs-2">
+    <div xid="div25" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="jmkc" id="jmkc"></button></div> </div> 
+  </div>
+  <div xid="div29" class="row" style="height:5%;">
+   <div xid="div28" class="col-xs-12" style="height:100%;"></div></div>
+  <div xid="div32" class="row" style="height:20%;">
+   <div xid="div31" class="col-xs-12" style="height:100%;">
+    <div xid="div115" class="row" style="height:50%;">
+     <div xid="div126" class="col-xs-1" style="width:2%;">
+      <div xid="div120" class="cell"></div></div> 
+     <div xid="div127" class="col-xs-2" style="width:8%;">
+      <div xid="div125" class="cell">
+       <img src="img/coke.png" style="width:80%;" height="80%" xid="image2"></div> </div> 
+     <div xid="div122" class="col-xs-1" style="width:1%;">
+      <div xid="div121" class="cell"></div></div> 
+     <div xid="div119" class="col-xs-2" style="width:10%;">
+      <div xid="div118" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="button12">焦炭</button></div> </div> 
+     
+     <div xid="div61" class="col-xs-1" style="width:2%;">
+   <div xid="div59" class="cell"></div></div><div xid="div33" class="col-xs-2">
+      <div xid="div30" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="jtzkc" id="jtzkc"></button></div> </div> 
+  </div> 
+    <div xid="div117" class="row" style="height:50%;">
+     <div xid="div133" class="col-xs-2">
+      <div xid="div157" class="cell"></div></div> 
+     <div xid="div159" class="col-xs-2">
+      <div xid="div160" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tjjItem0" id="tjjItem0">特级焦</button></div> </div> 
+     <div xid="div158" class="col-xs-2">
+      <div xid="div161" class="cell">
+       <button type="button" class="btn textCenter" style="font-size:150%;text-align:left;" xid="tjjValue0" id="tjjValue0"></button></div> </div> 
+     <div xid="div155" class="col-xs-6">
+      <div xid="div153" class="cell"></div></div> </div> </div> </div>
+  <div xid="div35" class="row" style="height:5%;">
+   <div xid="div34" class="col-xs-12"></div></div></div> </div></div><div xid="div16" class="col-xs-6">
+   <div class="row" style="height:5%;" xid="div77">
+   <div xid="div63" class="cell" ><button type="button" class="btn textCenter" style="font-size:200%;" xid="button18">品种预警</button></div></div>
+  <div class="row" style="height:5%;" xid="div138">
+   </div><div class="row" style="height:5%;" xid="div80">
+   <div xid="div85" class="col-xs-1">
+   
+   </div>
+  <div xid="div88" class="col-xs-2"><div xid="div123" class="cell">
+   <button type="button" class="btn textCenter" style="font-size:150%;" xid="button21">品种</button></div></div>
+  <div xid="div89" class="col-xs-2"><div xid="div124" class="cell">
+   <button type="button" class="btn textCenter" style="font-size:150%;" xid="button22">可用天数</button></div></div>
+  <div xid="div109" class="col-xs-2"><div xid="div128" class="cell">
+   <button type="button" class="btn textCenter" style="font-size:150%;" xid="button23">厂内库存</button></div></div>
+  <div xid="div110" class="col-xs-2"><div xid="div129" class="cell">
+   <button type="button" class="btn textCenter" style="font-size:150%;" xid="button24">待卸库存</button></div></div>
+  <div xid="div114" class="col-xs-2"><div xid="div130" class="cell">
+   <button type="button" class="btn textCenter" style="font-size:150%;" xid="button25">在途库存</button></div></div>
+  <div xid="div116" class="col-xs-1"></div></div>
+  <div class="row" style="height:85%;" xid="div78">
+   <div xid="div140" class="col-xs-12"><div class="row" style="height:10%;" xid="div141">
+   <div xid="div156" class="col-xs-1"></div>
+  <div xid="div154" class="col-xs-2">
+   <div xid="div148" class="cell">
+    <button type="button" class="btn textCenter" style="font-size:150%;" xid="item0" id="item0"></button></div> </div>
+  <div xid="div152" class="col-xs-2">
+   <div xid="div147" class="cell">
+    <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts0" id="kyts0"></button></div> </div>
+  <div xid="div145" class="col-xs-2">
+   <div xid="div149" class="cell">
+    <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc0" id="cnkc0"></button></div> </div>
+  <div xid="div146" class="col-xs-2">
+   <div xid="div150" class="cell">
+    <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc0" id="dxkc0"></button></div> </div>
+  <div xid="div143" class="col-xs-2">
+   <div xid="div151" class="cell">
+    <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc0" id="ztkc0"></button></div> </div>
+  <div xid="div144" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div165">
+   <div xid="div166" class="col-xs-1"></div>
+   <div xid="div174" class="col-xs-2">
+    <div xid="div171" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item1" id="item1"></button></div> </div> 
+   <div xid="div176" class="col-xs-2">
+    <div xid="div168" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts1" id="kyts1"></button></div> </div> 
+   <div xid="div170" class="col-xs-2">
+    <div xid="div172" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc1" id="cnkc1"></button></div> </div> 
+   <div xid="div167" class="col-xs-2">
+    <div xid="div173" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc1" id="dxkc1"></button></div> </div> 
+   <div xid="div164" class="col-xs-2">
+    <div xid="div175" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc1" id="ztkc1"></button></div> </div> 
+   <div xid="div169" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div178">
+   <div xid="div179" class="col-xs-1"></div>
+   <div xid="div187" class="col-xs-2">
+    <div xid="div184" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item2" id="item2"></button></div> </div> 
+   <div xid="div189" class="col-xs-2">
+    <div xid="div181" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts2" id="kyts2"></button></div> </div> 
+   <div xid="div183" class="col-xs-2">
+    <div xid="div185" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;"  xid="cnkc2" id="cnkc2"></button></div> </div> 
+   <div xid="div180" class="col-xs-2">
+    <div xid="div186" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc2" id="dxkc2"></button></div> </div> 
+   <div xid="div177" class="col-xs-2">
+    <div xid="div188" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc2" id="ztkc2"></button></div> </div> 
+   <div xid="div182" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div191">
+   <div xid="div192" class="col-xs-1"></div>
+   <div xid="div200" class="col-xs-2">
+    <div xid="div197" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item3" id="item3"></button></div> </div> 
+   <div xid="div202" class="col-xs-2">
+    <div xid="div194" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts3" id="kyts3"></button></div> </div> 
+   <div xid="div196" class="col-xs-2">
+    <div xid="div198" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc3" id="cnkc3"></button></div> </div> 
+   <div xid="div193" class="col-xs-2">
+    <div xid="div199" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc3" id="dxkc3"></button></div> </div> 
+   <div xid="div190" class="col-xs-2">
+    <div xid="div201" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc3" id="ztkc3"></button></div> </div> 
+   <div xid="div195" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div204">
+   <div xid="div205" class="col-xs-1"></div>
+   <div xid="div213" class="col-xs-2">
+    <div xid="div210" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item4" id="item4"></button></div> </div> 
+   <div xid="div215" class="col-xs-2">
+    <div xid="div207" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;"  xid="kyts4" id="kyts4"></button></div> </div> 
+   <div xid="div209" class="col-xs-2">
+    <div xid="div211" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc4" id="cnkc4"></button></div> </div> 
+   <div xid="div206" class="col-xs-2">
+    <div xid="div212" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc4" id="dxkc4"></button></div> </div> 
+   <div xid="div203" class="col-xs-2">
+    <div xid="div214" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc4" id="ztkc4"></button></div> </div> 
+   <div xid="div208" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div217">
+   <div xid="div218" class="col-xs-1"></div>
+   <div xid="div226" class="col-xs-2">
+    <div xid="div223" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item5" id="item5"></button></div> </div> 
+   <div xid="div228" class="col-xs-2">
+    <div xid="div220" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts5" id="kyts5"></button></div> </div> 
+   <div xid="div222" class="col-xs-2">
+    <div xid="div224" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc5" id="cnkc5"></button></div> </div> 
+   <div xid="div219" class="col-xs-2">
+    <div xid="div225" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc5" id="dxkc5"></button></div> </div> 
+   <div xid="div216" class="col-xs-2">
+    <div xid="div227" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc5" id="ztkc5"></button></div> </div> 
+   <div xid="div221" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div230">
+   <div xid="div231" class="col-xs-1"></div>
+   <div xid="div239" class="col-xs-2">
+    <div xid="div236" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item6" id="item6"></button></div> </div> 
+   <div xid="div241" class="col-xs-2">
+    <div xid="div233" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts6" id="kyts6"></button></div> </div> 
+   <div xid="div235" class="col-xs-2">
+    <div xid="div237" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc6" id="cnkc6"></button></div> </div> 
+   <div xid="div232" class="col-xs-2">
+    <div xid="div238" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc6" id="dxkc6"></button></div> </div> 
+   <div xid="div229" class="col-xs-2">
+    <div xid="div240" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc6" id="ztkc6"></button></div> </div> 
+   <div xid="div234" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div243">
+   <div xid="div244" class="col-xs-1"></div>
+   <div xid="div252" class="col-xs-2">
+    <div xid="div249" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item7" id="item7"></button></div> </div> 
+   <div xid="div254" class="col-xs-2">
+    <div xid="div246" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts7" id="kyts7"></button></div> </div> 
+   <div xid="div248" class="col-xs-2">
+    <div xid="div250" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc7" id="cnkc7"></button></div> </div> 
+   <div xid="div245" class="col-xs-2">
+    <div xid="div251" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc7" id="dxkc7"></button></div> </div> 
+   <div xid="div242" class="col-xs-2">
+    <div xid="div253" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc7" id="ztkc7"></button></div> </div> 
+   <div xid="div247" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div256">
+   <div xid="div257" class="col-xs-1"></div>
+   <div xid="div265" class="col-xs-2">
+    <div xid="div262" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item8" id="item8"></button></div> </div> 
+   <div xid="div267" class="col-xs-2">
+    <div xid="div259" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts8" id="kyts8"></button></div> </div> 
+   <div xid="div261" class="col-xs-2">
+    <div xid="div263" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc8" id="cnkc8"></button></div> </div> 
+   <div xid="div258" class="col-xs-2">
+    <div xid="div264" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc8" id="dxkc8"></button></div> </div> 
+   <div xid="div255" class="col-xs-2">
+    <div xid="div266" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc8" id="ztkc8"></button></div> </div> 
+   <div xid="div260" class="col-xs-1"></div></div>
+  <div class="row" style="height:10%;" xid="div269">
+   <div xid="div270" class="col-xs-1"></div>
+   <div xid="div278" class="col-xs-2">
+    <div xid="div275" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="item9" id="item9"></button></div> </div> 
+   <div xid="div280" class="col-xs-2">
+    <div xid="div272" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="kyts9" id="kyts9"></button></div> </div> 
+   <div xid="div274" class="col-xs-2">
+    <div xid="div276" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="cnkc9" id="cnkc9"></button></div> </div> 
+   <div xid="div271" class="col-xs-2">
+    <div xid="div277" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="dxkc9" id="dxkc9"></button></div> </div> 
+   <div xid="div268" class="col-xs-2">
+    <div xid="div279" class="cell">
+     <button type="button" class="btn textCenter" style="font-size:150%;" xid="ztkc9" id="ztkc9"></button></div> </div> 
+   <div xid="div273" class="col-xs-1"></div></div></div></div>
+  </div></div>
+  </div></div>
+    <!-- /#wrapper -->
+    
+</body>
+</html>

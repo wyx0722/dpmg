@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DPMG12">
+
+	<select id="queryZDGNH" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+			select UNIT_NAME,WEIGHT_AC 
+			from SU.TS_MG_17 
+			where UNIT_NAME='公司'
+			<isNotEmpty prepend=" AND " property="dateCode">
+				 date_code &gt;= #dateCode#
+			 </isNotEmpty>			
+			order by date_code desc
+	  
+	</select>
+	
+	<select id="queryZWGNY" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+	        select sum(t3.cost) as cost from
+			(select t1.unit_name ,t1.weight_ac*t2.unit_money as cost 
+			from SU.TS_MG_18 t1,SU.TF_MG_18 t2 
+			where t1.unit_name=t2.UNIT_CODE) t3
+
+	</select>
+	
+	<select id="queryZYD" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		   select sum(weight_ac) as weight_ac from SU.TS_MG_19 
+	</select>	
+	
+	
+	
+	<select id="queryDGNH" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+			select UNIT_NAME,WEIGHT_AC 
+			from SU.TS_MG_17 
+			where UNIT_NAME<![CDATA[<>]]>'公司'
+			<isNotEmpty prepend=" AND " property="dateCode">
+				 date_code &gt;= #dateCode#
+			 </isNotEmpty>			
+			order by date_code desc
+	  
+	</select>
+	
+	<select id="queryWGNY" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+			select 
+			t1.unit_name ,t1.weight_ac*t2.unit_money as cost 
+			from SU.TS_MG_18 t1,SU.TF_MG_18 t2 
+			where t1.unit_name=t2.UNIT_CODE
+
+	</select>
+	
+	<select id="queryYD" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		   select UNIT_NAME,WEIGHT_AC from SU.TS_MG_19
+	</select>	   
+
+</sqlMap>
+
